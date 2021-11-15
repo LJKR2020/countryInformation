@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
     <title>Country Information - World Regions</title>
 </head>
 <body>
+<Header>
+    <h1>Country Information</h1>
+</Header>
 
+<img src="./assets/world_map.png" alt="worldmap">
+
+
+<form id="search">
+    <input type="text" name="q" id="query" placeholder="Which country?"/>
+    <button type="submit">Zoek</button>
+</form>
+
+<div id="listofcountries">
+
+</div>
+<script type="module" src="app.js"></script>
 </body>
 </html>
