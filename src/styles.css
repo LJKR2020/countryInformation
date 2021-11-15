@@ -15,6 +15,10 @@ form {
     align-items: center;
 }
 
+.listofcountries img {
+    max-width: 100px;
+}
+
 @media screen {
     img {
         min-width: 768px;

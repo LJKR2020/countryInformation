@@ -21,7 +21,7 @@ const currencies = (currencies) => {
     if (currencies.length > 1) {
         let curString = '';
         for (i = 0; i < currencies.length; i++) {
-            if (currencies.length - 1 == i) {
+            if (currencies.length - 1 === i) {
                 curString += currencies[i].name;
             } else {
                 curString +=  `${currencies[i].name} and `;
@@ -58,9 +58,15 @@ const getCountriesByName = (term = query.value) => {
     axios.get(`${api}/name/${term}`)
         .then(res => {
             console.error(res);
-
-            results.innerHTML = '';
-            generateResults(res.data);
+            if (res.data.status === 404) {
+                results.textContent = `No results found`
+            } else {
+                results.innerHTML = '';
+                generateResults(res.data);
+            }
+        })
+        .catch(err => {
+            results.textContent = `Something went wrong: ${err}`
         })
         .finally(() => {
             query.value = '';
@@ -77,4 +83,4 @@ const getAllCountries = () => {
 }
 
 // getAllCountries();
-getCountriesByName();
+getCountriesByName('Nederland');
